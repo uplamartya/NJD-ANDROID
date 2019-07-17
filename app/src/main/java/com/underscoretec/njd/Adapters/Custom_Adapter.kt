@@ -9,8 +9,8 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import com.underscoretec.njd.Models.Model_post
 import android.content.Context
+import com.bumptech.glide.Glide
 import com.underscoretec.njd.Activities.DashboardActivity
-import com.underscoretec.njd.Fragment.Video_description_fragment
 import com.underscoretec.njd.R
 
 
@@ -29,15 +29,15 @@ class CustomAdapter(
     //this method is binding the data on the list
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val user: Model_post = userList[position]
+        val post: Model_post = userList[position]
 
-        holder.describe.text = user.contentdescription
-        holder.imageviewContent.setImageResource(userList[position].contentimage)
-        holder.imageviewuser.setImageResource(userList[position].userimage)
+        holder.describe.text = post.contentdescription
+        Glide.with(context!!).load(post.contentimage).into(holder.imageviewContent)
+        holder.imageviewuser.setImageResource(post.userimage)
 
         holder.relativeLayout.setOnClickListener {
             if (context is DashboardActivity) {
-                context.openVideoDescFragment()
+                context.openVideoDescFragment(post)
             }
 
         }

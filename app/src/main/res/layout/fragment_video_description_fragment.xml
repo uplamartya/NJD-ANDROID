@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content">
 
             <TextView
-                    android:id="@+id/text_desc"
+                    android:id="@+id/text_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Now Just dance All Performance"
@@ -39,7 +39,7 @@
 
             <TextView android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
-                      android:layout_below="@id/text_desc"
+                      android:layout_below="@id/text_title"
                       android:text="1.2k Views"
                       android:textSize="@dimen/_10sdp"
                       android:layout_marginLeft="@dimen/_15sdp"

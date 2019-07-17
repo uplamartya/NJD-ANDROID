@@ -1,7 +1,7 @@
 package com.underscoretec.njd.Fragment
 
 
-
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.net.Uri
@@ -25,17 +25,21 @@ import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
 import com.underscoretec.njd.Adapters.CustomAdapter
+import com.underscoretec.njd.Models.Likes
 import com.underscoretec.njd.Models.Model_post
 import com.underscoretec.njd.R
-import kotlinx.android.synthetic.main.fragment_video_description_fragment.*
 import org.json.JSONObject
 import java.util.ArrayList
 
 
-class Video_description_fragment : Fragment() {
+@SuppressLint("ValidFragment")
+class Video_description_fragment @SuppressLint("ValidFragment") constructor(private val post: Model_post) : Fragment() {
     lateinit var mPlayerView: SimpleExoPlayerView
     lateinit var mPlayer: SimpleExoPlayer
-    lateinit var user : TextView
+    lateinit var user: TextView
+    lateinit var text_title: TextView
+    lateinit var txt_clap: TextView
+    lateinit var txt_comment: TextView
     lateinit var relatedVideo: RecyclerView
     lateinit var sharedPref: SharedPreferences
 
@@ -45,9 +49,9 @@ class Video_description_fragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_video_description_fragment, container, false)
-        mPlayerView = view.findViewById(R.id.player)
+        initUiElements(view)
         getPlayer()
-        user = view.findViewById(R.id.user_name)
+        setVideoDesc()
         getValue()
 
         relatedVideo = view.findViewById(R.id.recycler_related_video)
@@ -55,20 +59,108 @@ class Video_description_fragment : Fragment() {
         relatedVideo.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         val user = ArrayList<Model_post>()
+        var likeList = ArrayList<Likes>()
 
-        user.add(Model_post(R.drawable.image_1, R.drawable.userimage, "Now Just Dance All Performance World of Dance 2019....."))
-        user.add(Model_post(R.drawable.image_1, R.drawable.userimage, "Now Just Dance All Performance World of Dance 2019....."))
-        user.add(Model_post(R.drawable.image_1, R.drawable.userimage, "Now Just Dance All Performance World of Dance 2019....."))
-        user.add(Model_post(R.drawable.image_1, R.drawable.userimage, "Now Just Dance All Performance World of Dance 2019....."))
-        user.add(Model_post(R.drawable.image_1, R.drawable.userimage, "Now Just Dance All Performance World of Dance 2019....."))
-        user.add(Model_post(R.drawable.image_1, R.drawable.userimage, "Now Just Dance All Performance World of Dance 2019....."))
-        user.add(Model_post(R.drawable.image_1, R.drawable.userimage, "Now Just Dance All Performance World of Dance 2019....."))
-        user.add(Model_post(R.drawable.image_1, R.drawable.userimage, "Now Just Dance All Performance World of Dance 2019....."))
-        user.add(Model_post(R.drawable.image_1, R.drawable.userimage, "Now Just Dance All Performance World of Dance 2019....."))
-        user.add(Model_post(R.drawable.image_1, R.drawable.userimage, "Now Just Dance All Performance World of Dance 2019....."))
-        user.add(Model_post(R.drawable.image_1, R.drawable.userimage, "Now Just Dance All Performance World of Dance 2019....."))
-        user.add(Model_post(R.drawable.image_1, R.drawable.userimage, "Now Just Dance All Performance World of Dance 2019....."))
-        user.add(Model_post(R.drawable.image_1, R.drawable.userimage, "Now Just Dance All Performance World of Dance 2019....."))
+        user.add(
+            Model_post(
+                "54545",
+                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
+                R.drawable.userimage,
+                "Now Just Dance All Performance World of Dance 2019.....",
+                "url",
+                likeList,
+                0
+            )
+        )
+        user.add(
+            Model_post(
+                "54545",
+                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
+                R.drawable.userimage,
+                "Now Just Dance All Performance World of Dance 2019.....",
+                "url",
+                likeList,
+                0
+            )
+        )
+        user.add(
+            Model_post(
+                "54545",
+                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
+                R.drawable.userimage,
+                "Now Just Dance All Performance World of Dance 2019.....",
+                "url",
+                likeList,
+                0
+            )
+        )
+         user.add(
+            Model_post(
+                "54545",
+                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
+                R.drawable.userimage,
+                "Now Just Dance All Performance World of Dance 2019.....",
+                "url",
+                likeList,
+                0
+            )
+        )
+         user.add(
+            Model_post(
+                "54545",
+                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
+                R.drawable.userimage,
+                "Now Just Dance All Performance World of Dance 2019.....",
+                "url",
+                likeList,
+                0
+            )
+        )
+         user.add(
+            Model_post(
+                "54545",
+                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
+                R.drawable.userimage,
+                "Now Just Dance All Performance World of Dance 2019.....",
+                "url",
+                likeList,
+                0
+            )
+        )
+         user.add(
+            Model_post(
+                "54545",
+                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
+                R.drawable.userimage,
+                "Now Just Dance All Performance World of Dance 2019.....",
+                "url",
+                likeList,
+                0
+            )
+        )
+         user.add(
+            Model_post(
+                "54545",
+                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
+                R.drawable.userimage,
+                "Now Just Dance All Performance World of Dance 2019.....",
+                "url",
+                likeList,
+                0
+            )
+        )
+         user.add(
+            Model_post(
+                "54545",
+                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
+                R.drawable.userimage,
+                "Now Just Dance All Performance World of Dance 2019.....",
+                "url",
+                likeList,
+                0
+            )
+        )
+
 
 
         val adapter = CustomAdapter(user, context)
@@ -79,9 +171,22 @@ class Video_description_fragment : Fragment() {
         return view
     }
 
+    private fun initUiElements(view: View) {
+        mPlayerView = view.findViewById(R.id.player)
+        user = view.findViewById(R.id.user_name)
+        text_title = view.findViewById(R.id.text_title)
+        txt_clap = view.findViewById(R.id.txt_clap)
+        txt_comment = view.findViewById(R.id.txt_comment)
+    }
+
+    private fun setVideoDesc() {
+        text_title.text = post.contentdescription
+        txt_comment.text = post.comment.toString()
+    }
+
     private fun getPlayer() {
         // URL of the video to stream
-        val videoURL = "https://videodelivery.net/1584a1a702d494e3ddf52081d4a0b168/manifest/video.m3u8"
+        val videoURL = post.videoUrl
 
         // Handler for the video player
         val mainHandler = Handler()

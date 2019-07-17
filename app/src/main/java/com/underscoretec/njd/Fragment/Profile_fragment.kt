@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.underscoretec.njd.Adapters.CustomAdapter
+import com.underscoretec.njd.Models.Likes
 import com.underscoretec.njd.Models.Model_post
 import com.underscoretec.njd.R
 import org.json.JSONObject
@@ -35,8 +36,8 @@ class Profile_fragment : Fragment() {
         val view: View = inflater.inflate(R.layout.profile_fragment, container, false)
 
 
-        var colllaps = view.findViewById<CollapsingToolbarLayout>(R.id.collapsing_toolbar)
-        colllaps.title = "Collapsing"
+//        var colllaps = view.findViewById<CollapsingToolbarLayout>(R.id.collapsing_toolbar)
+//        colllaps.title = "Collapsing"
 
         initUiElements(view)
         onTap()
@@ -44,17 +45,118 @@ class Profile_fragment : Fragment() {
 
 
         val user = ArrayList<Model_post>()
+        var likeList = ArrayList<Likes>()
 
-        user.add(Model_post(R.drawable.dummypost, R.drawable.image_3, "Now Just dance All Performance"))
-        user.add(Model_post(R.drawable.dummypost, R.drawable.image_3, "Now Just dance All Performance"))
-        user.add(Model_post(R.drawable.dummypost, R.drawable.image_3, "Now Just dance All Performance"))
-        user.add(Model_post(R.drawable.dummypost, R.drawable.image_3, "Now Just dance All Performance"))
-        user.add(Model_post(R.drawable.dummypost, R.drawable.image_3, "Now Just dance All Performance"))
-        user.add(Model_post(R.drawable.dummypost, R.drawable.image_3, "Now Just dance All Performance"))
-        user.add(Model_post(R.drawable.dummypost, R.drawable.image_3, "Now Just dance All Performance"))
-        user.add(Model_post(R.drawable.dummypost, R.drawable.image_3, "Now Just dance All Performance"))
-        user.add(Model_post(R.drawable.dummypost, R.drawable.image_3, "Now Just dance All Performance"))
-        user.add(Model_post(R.drawable.dummypost, R.drawable.image_3, "Now Just dance All Performance"))
+        user.add(
+            Model_post(
+                "54545",
+                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
+                R.drawable.userimage,
+                "Now Just Dance All Performance World of Dance 2019.....",
+                "url",
+                likeList,
+                0
+            )
+        )
+        user.add(
+            Model_post(
+                "54545",
+                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
+                R.drawable.userimage,
+                "Now Just Dance All Performance World of Dance 2019.....",
+                "url",
+                likeList,
+                0
+            )
+        )
+        user.add(
+            Model_post(
+                "54545",
+                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
+                R.drawable.userimage,
+                "Now Just Dance All Performance World of Dance 2019.....",
+                "url",
+                likeList,
+                0
+            )
+        )
+        user.add(
+            Model_post(
+                "54545",
+                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
+                R.drawable.userimage,
+                "Now Just Dance All Performance World of Dance 2019.....",
+                "url",
+                likeList,
+                0
+            )
+        )
+        user.add(
+            Model_post(
+                "54545",
+                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
+                R.drawable.userimage,
+                "Now Just Dance All Performance World of Dance 2019.....",
+                "url",
+                likeList,
+                0
+            )
+        )
+        user.add(
+            Model_post(
+                "54545",
+                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
+                R.drawable.userimage,
+                "Now Just Dance All Performance World of Dance 2019.....",
+                "url",
+                likeList,
+                0
+            )
+        )
+        user.add(
+            Model_post(
+                "54545",
+                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
+                R.drawable.userimage,
+                "Now Just Dance All Performance World of Dance 2019.....",
+                "url",
+                likeList,
+                0
+            )
+        )
+        user.add(
+            Model_post(
+                "54545",
+                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
+                R.drawable.userimage,
+                "Now Just Dance All Performance World of Dance 2019.....",
+                "url",
+                likeList,
+                0
+            )
+        )
+        user.add(
+            Model_post(
+                "54545",
+                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
+                R.drawable.userimage,
+                "Now Just Dance All Performance World of Dance 2019.....",
+                "url",
+                likeList,
+                0
+            )
+        )
+        user.add(
+            Model_post(
+                "54545",
+                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
+                R.drawable.userimage,
+                "Now Just Dance All Performance World of Dance 2019.....",
+                "url",
+                likeList,
+                0
+            )
+        )
 
 
         val adapter = CustomAdapter(user, context)
@@ -98,7 +200,7 @@ class Profile_fragment : Fragment() {
     private fun initUiElements(view: View) {
         recycler_view1 = view.findViewById(R.id.recycler_content1)
         textview_username = view.findViewById(R.id.username)
-        recycler_view1.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
+        recycler_view1.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
     }
 }

@@ -135,8 +135,12 @@ class LoginActivity : AppCompatActivity() {
         } else {
 
             enableView()
-            val mysnackbar = Snackbar.make(my_coordinator,"You are not connected to the Internet,Please check your Internet Connection",Snackbar.LENGTH_LONG)
-            mysnackbar.setAction("Retry",View.OnClickListener {
+            val mysnackbar = Snackbar.make(
+                my_coordinator,
+                "You are not connected to the Internet,Please check your Internet Connection",
+                Snackbar.LENGTH_LONG
+            )
+            mysnackbar.setAction("Retry", View.OnClickListener {
                 dosingin(data)
             })
             mysnackbar.show()

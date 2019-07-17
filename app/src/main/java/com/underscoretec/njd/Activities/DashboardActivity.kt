@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment
 import android.view.View
 import android.widget.Toast
 import com.underscoretec.njd.Fragment.*
+import com.underscoretec.njd.Models.Model_post
 import com.underscoretec.njd.R
 
 
@@ -97,9 +98,9 @@ class DashboardActivity : AppCompatActivity() {
 
     }
 
-    fun openVideoDescFragment() {
+    fun openVideoDescFragment(post: Model_post) {
         val fragmentManager = supportFragmentManager
-        fragmentManager.beginTransaction().replace(R.id.videoDesc_frame, Video_description_fragment()).addToBackStack(null).commit()
+        fragmentManager.beginTransaction().replace(R.id.videoDesc_frame, Video_description_fragment(post)).addToBackStack(null).commit()
 
     }
 

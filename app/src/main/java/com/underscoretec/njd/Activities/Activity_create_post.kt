@@ -1,12 +1,10 @@
 package com.underscoretec.njd.Activities
 
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.support.design.widget.Snackbar
 import android.util.Log
 import android.view.View
@@ -61,6 +59,7 @@ class Activity_create_post : AppCompatActivity() {
     var _id: String = ""
     internal var mQueue: RequestQueue? = null
     var videourl: String = ""
+    var videothumbnail: String = ""
     val TAG = "CREATEPOSTACTIVITY"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -94,7 +93,12 @@ class Activity_create_post : AppCompatActivity() {
         btn_share.setOnClickListener {
             if (filePath != "") {
                 if (_id != "" && jwtToken != "") {
-                    uploadVideoToServer(filePath)
+                    if (editText_title.text.toString().trim().isNotEmpty()) {
+                        uploadVideoToServer(filePath)
+                    } else {
+                        SDUtility.displayExceptionMessage("Please add a Video Title",this@Activity_create_post)
+                    }
+
                 }
 
             }
@@ -132,10 +136,11 @@ class Activity_create_post : AppCompatActivity() {
                 val res = response.body().toString()
                 val resObject = JSONObject(res)
                 videourl = resObject.getString("url")
-                println("Activity_create_post.onResponse$videourl")
-                if (videourl != "") {
+                videothumbnail = resObject.getString("thumbnail")
+                println("Activity_create_post.onResponse $res")
+                if (videourl != "" && videothumbnail != "") {
                     //method to create post
-                    createPost(videourl)
+                    createPost(videourl, videothumbnail)
                 }
 
                 hideProgressBar(loader)
@@ -152,7 +157,7 @@ class Activity_create_post : AppCompatActivity() {
     }
 
     //method to craete post with uploaded video url
-    private fun createPost(url: String) {
+    private fun createPost(url: String, videothumbnail: String) {
         println("INSIDE CREATE POST")
         val bodyObject = JSONObject()
         bodyObject.put("userId", _id)
@@ -161,6 +166,8 @@ class Activity_create_post : AppCompatActivity() {
         }
         bodyObject.put("videoUrl", url)
         bodyObject.put("type", "jjj")
+        bodyObject.put("category", "Entertainment")
+        bodyObject.put("thumbNail", videothumbnail)
 
         println("Activity_create_post.createPost$bodyObject")
 
@@ -219,7 +226,7 @@ class Activity_create_post : AppCompatActivity() {
             mysnackbar.setAction("Retry", View.OnClickListener {
                 if (videourl != "") {
                     //method to create post with uploaded video url
-                    createPost(videourl)
+                    createPost(videourl, videothumbnail)
                 } else {
                     SDUtility.displayExceptionMessage("Please Upload the Video", this@Activity_create_post)
                 }

@@ -1,5 +1,14 @@
 package com.underscoretec.njd.Models
 
+import java.util.ArrayList
 
 
-    class Model_post(val contentimage: Int, val userimage: Int, val contentdescription: String)
+class Model_post(
+    val postId: String,
+    val contentimage: String,
+    val userimage: Int,
+    val contentdescription: String,
+    val videoUrl: String,
+    val likes: ArrayList<Likes>,
+    val comment: Int
+)
