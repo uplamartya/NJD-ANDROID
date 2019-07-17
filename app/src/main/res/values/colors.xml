@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#1D1D1D</color>
+    <color name="colorAccent">#e21020</color>
+
+    <color name="background_color">#101010</color>
+    <color name="bottom_navigation_color">#232323</color>
+    <color name="search_bar_color">#1D1D1D</color>
+    <color name="search_text_color">#CECECE</color>
+    <color name="contenttextcolor">#C5C5C5</color>
+
+    <color name="edit">#292828</color>
+    <color name="btn">#e21020</color>
+    <color name="tv">#95989A</color>
+    <color name="sign">#FFFFFF</color>
+    <color name="fp">#989898</color>
+
+
+    <color name="balck">#000</color>
+    <color name="white">#fff</color>
+    <color name="facebook">#5265a1</color>
+    <color name="red">#f04732</color>
+    <color name="grey">#CABBBBBB</color>
+</resources>

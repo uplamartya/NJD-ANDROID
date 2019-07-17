@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                                                 android:id="@+id/registration_coordinate"
+                android:background="@drawable/sign_in_image_">
+
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_20sdp">
+        <RelativeLayout
+                android:id="@+id/ricon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                    android:id="@+id/icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/ic_icon"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+
+            <RelativeLayout
+                    android:id="@+id/rsign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp">
+                <TextView
+                        android:id="@+id/tvsign"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sign up Now"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/sign"
+                        android:textSize="@dimen/_20sdp"/>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                    android:id="@+id/reuser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rsign"
+                    android:layout_marginTop="@dimen/_45sdp">
+                <TextView
+                        android:id="@+id/ritvuser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="User Name"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/tv"
+                        android:textSize="@dimen/_12sdp"/>
+                <EditText
+                        android:id="@+id/rietuser"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_below="@id/ritvuser"
+                        android:textColor="@color/sign"
+                        android:background="@drawable/rounded_edittext"
+                        android:backgroundTint="@color/edit"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_5sdp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:id="@+id/rtext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/reuser">
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/tv"
+                        android:textSize="@dimen/_10sdp"
+                        android:fontFamily="sans-serif"
+                        android:text="(Note: A password will be e-mailed to you for future reference)"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:id="@+id/riemail"
+                    android:layout_below="@id/rtext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp">
+                <TextView
+                        android:id="@+id/rtvemail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/tv"
+                        android:textSize="@dimen/_12sdp"/>
+                <EditText
+                        android:id="@+id/ritemail"
+                        android:layout_below="@+id/rtvemail"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_43sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:textColor="@color/sign"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:inputType="textEmailAddress"
+                        android:background="@drawable/rounded_edittext"
+                        android:backgroundTint="@color/edit"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:id="@+id/rsignbtn"
+                    android:layout_below="@+id/riemail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_centerInParent="true">
+
+                <Button
+                        android:id="@+id/rigsign"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sign Up"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/sign"
+                        android:paddingHorizontal="@dimen/_40sdp"
+                        android:textAllCaps="false"
+                        android:background="@drawable/rounded_edittext"
+                        android:backgroundTint="@color/btn"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/rtv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true">
+            <TextView
+                    android:id="@+id/tvll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/sign"
+                    android:text="Don't have any account?"
+                    android:fontFamily="sans-serif-medium"/>
+            <TextView
+                    android:id="@+id/tvlogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tvll"
+                    android:text=" Log In"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/btn"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+    <ProgressBar
+            android:id="@+id/my_progressbar"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
+</android.support.design.widget.CoordinatorLayout>

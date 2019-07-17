@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">NJD</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="item_name">Item Name</string>
+    <string name="hold_for_video_tap_for_photo">Hold for video, tap for photo</string>
+    <string name="file_limit_size_upload_format">Files must be less than %sMB</string>
+    <string name="search">search</string>
+    <string name="collapsing_toolbar">Now Just dance All Performance</string>
+
+    <!--Video Uploading-->
+
+    <string name="upload_video">UPLOAD VIDEO</string>
+    <string name="read_file">This app needs access to your file storage so that it can read video.</string>
+    <string name="create_post">Create Post</string>
+    <string name="Follow">Follow</string>
+</resources>

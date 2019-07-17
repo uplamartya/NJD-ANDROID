@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+              android:background="#fff"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:weightSum="2">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".2">
+
+        <RelativeLayout android:id="@+id/rl_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:background="@drawable/edittext_background"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginHorizontal="@dimen/_20sdp">
+
+            <ImageView android:id="@+id/seach_icon"
+                       android:layout_width="wrap_content"
+                       android:padding="@dimen/_5sdp"
+                       android:layout_height="wrap_content"
+                       android:layout_centerVertical="true"
+                       android:layout_alignParentRight="true"
+                       app:srcCompat="@drawable/search_icon_2"
+                       tools:ignore="VectorDrawableCompat"/>
+            <EditText
+                    android:id="@+id/edittext_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dip"
+                    android:layout_toLeftOf="@id/seach_icon"
+                    android:hint="@string/search"
+                    android:textColor="#8d8d8d"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-light"
+                    android:background="@null"
+                    android:inputType="text"/>
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.8">
+
+        <android.support.design.widget.TabLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tab_layout"
+                app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
+                android:minHeight="?attr/actionBarSize"
+                app:tabSelectedTextColor="@color/colorAccent">
+
+        </android.support.design.widget.TabLayout>
+        <View
+                android:id="@+id/divider"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/tab_layout"
+                android:background="#c0c0c0"/>
+
+
+
+        <android.support.v4.view.ViewPager
+                android:id="@+id/custom_viewPager"
+                android:layout_below="@id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+    </RelativeLayout>
+</LinearLayout>

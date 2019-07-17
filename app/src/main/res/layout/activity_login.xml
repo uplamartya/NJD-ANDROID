@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/my_coordinator"
+        android:background="@drawable/sign_in_image_"
+        tools:context=".Activities.DashboardActivity">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_20sdp">
+        <RelativeLayout
+                android:id="@+id/ricon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                    android:id="@+id/icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/ic_icon"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/relative_screen"
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content"
+        >
+            <RelativeLayout
+                    android:id="@+id/rsign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp">
+                <TextView
+                        android:id="@+id/tvsign"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sign in Now"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/sign"
+                        android:textSize="@dimen/_20sdp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:id="@+id/remail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rsign"
+                    android:layout_marginTop="@dimen/_45sdp">
+                <TextView
+                        android:id="@+id/tvemail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/tv"
+                        android:textSize="@dimen/_12sdp"/>
+                <EditText
+                        android:id="@+id/etemail"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_below="@id/tvemail"
+                        android:textColor="@color/sign"
+                        android:background="@drawable/rounded_edittext"
+                        android:backgroundTint="@color/edit"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_5sdp" android:hapticFeedbackEnabled="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:id="@+id/rpass"
+                    android:layout_below="@id/remail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp">
+                <TextView
+                        android:id="@+id/tvpass"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Password"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/tv"
+                        android:textSize="@dimen/_12sdp"/>
+                <TextView
+                        android:id="@+id/tvfpass"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="Forgot Password?"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/fp"
+                        android:textSize="@dimen/_12sdp"/>
+
+                <EditText
+                        android:id="@+id/etpass"
+                        android:layout_below="@+id/tvpass"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_43sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:textColor="@color/sign"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:inputType="textPassword"
+                        android:background="@drawable/rounded_edittext"
+                        android:backgroundTint="@color/edit" android:hapticFeedbackEnabled="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:id="@+id/rbtn"
+                    android:layout_below="@+id/rpass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_centerInParent="true">
+
+                <Button
+                        android:id="@+id/sing_in_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sign In"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/sign"
+                        android:paddingHorizontal="@dimen/_40sdp"
+                        android:textAllCaps="false"
+                        android:background="@drawable/rounded_edittext"
+                        android:backgroundTint="@color/btn"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+                android:id="@+id/rtv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true">
+            <TextView
+                    android:id="@+id/tvll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:textColor="@color/sign"
+                    android:text="Don't have any account?"
+                    android:fontFamily="sans-serif-medium"/>
+            <TextView
+                    android:id="@+id/tvclick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tvll"
+                    android:text=" Click here"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/btn"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ProgressBar
+            android:id="@+id/my_login_progressbar"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
+</android.support.design.widget.CoordinatorLayout>
