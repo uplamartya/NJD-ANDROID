@@ -9,6 +9,6 @@ class Model_post(
     val userimage: Int,
     val contentdescription: String,
     val videoUrl: String,
-    val likes: ArrayList<Likes>,
+    val likes: Int,
     val comment: Int
 )

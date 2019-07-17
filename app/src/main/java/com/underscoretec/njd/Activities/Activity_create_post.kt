@@ -96,7 +96,7 @@ class Activity_create_post : AppCompatActivity() {
                     if (editText_title.text.toString().trim().isNotEmpty()) {
                         uploadVideoToServer(filePath)
                     } else {
-                        SDUtility.displayExceptionMessage("Please add a Video Title",this@Activity_create_post)
+                        SDUtility.displayExceptionMessage("Please add a Video Title", this@Activity_create_post)
                     }
 
                 }
@@ -251,11 +251,11 @@ class Activity_create_post : AppCompatActivity() {
         mPlayer = ExoPlayerFactory.newSimpleInstance(this@Activity_create_post, trackSelector)
 
         // Load the default controller
-        mPlayerView!!.useController = true
-        mPlayerView!!.requestFocus()
+        mPlayerView.useController = true
+        mPlayerView.requestFocus()
 
         // Load the SimpleExoPlayerView with the created player
-        mPlayerView!!.player = mPlayer
+        mPlayerView.player = mPlayer
 
         // Measures bandwidth during playback. Can be null if not required.
 
@@ -281,7 +281,7 @@ class Activity_create_post : AppCompatActivity() {
         mPlayer.prepare(videoSource)
 
         // Autoplay the video when the player is ready
-        mPlayer.setPlayWhenReady(true)
+        mPlayer.playWhenReady = true
     }
 
     private fun getValue() {

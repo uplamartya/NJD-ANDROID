@@ -11,6 +11,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.ProgressBar
+import android.widget.Toast
 import com.android.volley.AuthFailureError
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -36,6 +38,7 @@ class Home : Fragment() {
     val user = ArrayList<Model_post>()
     private lateinit var recycler_view: RecyclerView
     lateinit var recycler_content: RecyclerView
+    lateinit var home_progressbar: ProgressBar
     internal var mQueue: RequestQueue? = null
     val TAG = "CREATEPOSTACTIVITY"
     var likeList = ArrayList<Likes>()
@@ -47,39 +50,37 @@ class Home : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
         initUiElements(view)
-
         fetchPost()
         itemcontent()
-
-
-
         return view
     }
+
 
     private fun initUiElements(view: View) {
         mQueue = MySingleton.getInstance(context!!).requestQueue
         recycler_view = view.findViewById(R.id.recycler_content_video)
         recycler_content = view.findViewById(R.id.recycler_content)
+        home_progressbar = view.findViewById(R.id.home_progressbar)
+
     }
 
     private fun fetchPost() {
 
         if (SDUtility.isNetworkAvailable(context)) {
-//            showProgressBar(my_login_progressbar)
-//            disableView()
+            showloader()
 
             val url = "https://njd.api.underscoretec.com/feed/post"
             val jsonObjReq = object : JsonObjectRequest(
                 Method.GET, url, null, Response.Listener { response ->
-                    //                    hideProgressBar(my_login_progressbar)
-//                    enableView()
+                    hideloader()
                     Log.v("Response Fetching Feeds", response.toString())
 
 
                     try {
                         val serverResp = JSONObject(response.toString())
                         println("success result: $serverResp")
-                        SDUtility.displayExceptionMessage(serverResp.getString("message"), context)
+                        val toast = Toast.makeText(context, serverResp.getString("message"), Toast.LENGTH_LONG)
+                        toast.show()
                         val errorStatus = serverResp.getString("error")
                         if (errorStatus == "true") {
                             val errorMessage = serverResp.getString("message")
@@ -87,18 +88,9 @@ class Home : Fragment() {
                         } else {
                             val resultObject = serverResp.getJSONArray("result")
                             for (i in 0 until resultObject.length()) {
-                                var Post = resultObject.getJSONObject(i)
+                                val Post = resultObject.getJSONObject(i)
 
-                                var likesArray = Post!!.getJSONArray("claps")
-
-                                if (likesArray!!.length() > 0) {
-
-                                    for (j in 0..(likesArray.length() - 1)) {
-
-                                        likeList.add(Likes(likesArray.getString(j)))
-                                    }
-                                }
-                                initializePostData(Post, likeList)
+                                initializePostData(Post)
                             }
                             initializePostAdapter()
 
@@ -110,8 +102,7 @@ class Home : Fragment() {
                     }
                 },
                 Response.ErrorListener { error ->
-                    //                    hideProgressBar(my_login_progressbar)
-//                    enableView()
+                    hideloader()
                     VolleyLog.e("Error in Fetching Feeds", "Error" + error.message)
                 }) {
 
@@ -125,8 +116,7 @@ class Home : Fragment() {
             jsonObjReq.tag = TAG
             mQueue!!.add(jsonObjReq)
         } else {
-
-//            enableView()
+            hideloader()
             val mysnackbar = Snackbar.make(
                 my_coordinator, "You are not connected to the Internet,Please check your Internet Connection",
                 Snackbar.LENGTH_LONG
@@ -136,6 +126,17 @@ class Home : Fragment() {
             })
             mysnackbar.show()
         }
+
+    }
+
+    private fun showloader() {
+
+        home_progressbar.visibility = View.VISIBLE
+    }
+
+    private fun hideloader() {
+        home_progressbar.visibility = View.GONE
+
 
     }
 
@@ -150,8 +151,8 @@ class Home : Fragment() {
     }
 
     private fun initializePostData(
-        post: JSONObject,
-        likeList: ArrayList<Likes>
+        post: JSONObject
+
     ) {
 
         user.add(
@@ -161,7 +162,7 @@ class Home : Fragment() {
                 R.drawable.userimage,
                 if (post.has("text")) post.getString("text") else "No Video Title Found",
                 post.getString("videoUrl"),
-                likeList,
+                if (post.has("totalClaps")) post.getInt("totalClaps") else 0,
                 post.getInt("comments")
 
             )

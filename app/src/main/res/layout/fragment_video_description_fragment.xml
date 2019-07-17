@@ -53,29 +53,31 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_below="@id/relative_description">
+            <RelativeLayout android:id="@+id/rl_clap" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                <ImageView
+                        android:id="@+id/image_clap"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:src="@drawable/ic_clap"
+                        android:layout_marginLeft="@dimen/_15sdp"/>
 
-            <ImageView
-                    android:id="@+id/image_clap"
-                    android:layout_width="@dimen/_15sdp"
-                    android:layout_height="@dimen/_15sdp"
-                    android:src="@drawable/ic_clap"
-                    android:layout_marginLeft="@dimen/_15sdp"/>
-
-            <TextView
-                    android:id="@+id/txt_clap"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/image_clap"
-                    android:text="2.5k"
-                    android:textSize="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_2sdp"
-                    android:layout_marginLeft="@dimen/_10sdp"/>
+                <TextView
+                        android:id="@+id/txt_clap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/image_clap"
+                        android:text="2.5k"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"/>
+            </RelativeLayout>
             <ImageView
                     android:id="@+id/image_comment"
                     android:layout_width="@dimen/_15sdp"
                     android:layout_height="@dimen/_15sdp"
                     android:src="@drawable/ic_comment"
-                    android:layout_toRightOf="@id/txt_clap"
+                    android:layout_toRightOf="@id/rl_clap"
                     android:layout_marginLeft="@dimen/_15sdp"/>
 
             <TextView

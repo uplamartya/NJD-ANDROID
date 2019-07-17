@@ -39,7 +39,7 @@
     </LinearLayout>
 
 
-    <LinearLayout
+    <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/_10sdp"
@@ -50,9 +50,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-        </android.support.v7.widget.RecyclerView>
 
-    </LinearLayout>
+        </android.support.v7.widget.RecyclerView>
+        <ProgressBar
+                android:id="@+id/home_progressbar"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+        />
+
+    </RelativeLayout>
 
 
 </RelativeLayout>

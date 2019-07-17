@@ -21,12 +21,17 @@ class DashboardActivity : AppCompatActivity() {
         setContentView(R.layout.activity_dashboard)
         initUielement()
         onTapUi()
-        relative_home.performClick()
+
     }
 
     fun initUielement() {
 
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        relative_home.performClick()
     }
 
     fun onTapUi() {

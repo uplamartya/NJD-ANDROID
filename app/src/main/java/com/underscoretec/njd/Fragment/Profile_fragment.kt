@@ -54,109 +54,96 @@ class Profile_fragment : Fragment() {
                 R.drawable.userimage,
                 "Now Just Dance All Performance World of Dance 2019.....",
                 "url",
-                likeList,
+                0,
                 0
             )
         )
-        user.add(
+
+       user.add(
             Model_post(
                 "54545",
                 "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
                 R.drawable.userimage,
                 "Now Just Dance All Performance World of Dance 2019.....",
                 "url",
-                likeList,
+                0,
                 0
             )
         )
-        user.add(
+
+       user.add(
             Model_post(
                 "54545",
                 "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
                 R.drawable.userimage,
                 "Now Just Dance All Performance World of Dance 2019.....",
                 "url",
-                likeList,
+                0,
                 0
             )
         )
-        user.add(
+
+       user.add(
             Model_post(
                 "54545",
                 "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
                 R.drawable.userimage,
                 "Now Just Dance All Performance World of Dance 2019.....",
                 "url",
-                likeList,
+                0,
                 0
             )
         )
-        user.add(
+
+       user.add(
             Model_post(
                 "54545",
                 "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
                 R.drawable.userimage,
                 "Now Just Dance All Performance World of Dance 2019.....",
                 "url",
-                likeList,
+                0,
                 0
             )
         )
-        user.add(
+
+       user.add(
             Model_post(
                 "54545",
                 "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
                 R.drawable.userimage,
                 "Now Just Dance All Performance World of Dance 2019.....",
                 "url",
-                likeList,
+                0,
                 0
             )
         )
-        user.add(
+
+       user.add(
             Model_post(
                 "54545",
                 "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
                 R.drawable.userimage,
                 "Now Just Dance All Performance World of Dance 2019.....",
                 "url",
-                likeList,
+                0,
                 0
             )
         )
-        user.add(
+
+       user.add(
             Model_post(
                 "54545",
                 "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
                 R.drawable.userimage,
                 "Now Just Dance All Performance World of Dance 2019.....",
                 "url",
-                likeList,
+                0,
                 0
             )
         )
-        user.add(
-            Model_post(
-                "54545",
-                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
-                R.drawable.userimage,
-                "Now Just Dance All Performance World of Dance 2019.....",
-                "url",
-                likeList,
-                0
-            )
-        )
-        user.add(
-            Model_post(
-                "54545",
-                "https://cloudflarestream.com/94416c1f102de9ce5d9e8d84758f9ae8/thumbnails/thumb_5_0.jpg",
-                R.drawable.userimage,
-                "Now Just Dance All Performance World of Dance 2019.....",
-                "url",
-                likeList,
-                0
-            )
-        )
+
+
 
 
         val adapter = CustomAdapter(user, context)
