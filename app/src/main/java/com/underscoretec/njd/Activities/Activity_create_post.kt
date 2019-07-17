@@ -67,19 +67,18 @@ class Activity_create_post : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_post)
         initUiElements()
-        mPlayerView = findViewById(R.id.preview_video)
-
-        getPlayer()
         onClickUI()
         getValue()
-
-        filePath = intent.getStringExtra("PATH")
-        println("file path of video" + filePath)
+        getPlayer()
 
 
     }
 
     private fun initUiElements() {
+        //get filepath of video from previous intent
+        filePath = intent.getStringExtra("PATH")
+        mPlayerView = findViewById(R.id.preview_video)
+
         mQueue = MySingleton.getInstance(this.applicationContext).requestQueue
     }
 
@@ -154,7 +153,7 @@ class Activity_create_post : AppCompatActivity() {
 
     //method to craete post with uploaded video url
     private fun createPost(url: String) {
-
+        println("INSIDE CREATE POST")
         val bodyObject = JSONObject()
         bodyObject.put("userId", _id)
         if (editText_title.text.toString().trim().isNotEmpty()) {
@@ -166,15 +165,15 @@ class Activity_create_post : AppCompatActivity() {
         println("Activity_create_post.createPost$bodyObject")
 
         if (SDUtility.isNetworkAvailable(this@Activity_create_post)) {
-            showProgressBar(my_login_progressbar)
+            showProgressBar(loader)
             disableView()
 
             val url = "https://njd.api.underscoretec.com/create/post"
             val jsonObjReq = object : JsonObjectRequest(
                 Method.POST, url, bodyObject, com.android.volley.Response.Listener { response ->
-                    hideProgressBar(my_login_progressbar)
+                    hideProgressBar(loader)
                     enableView()
-                    Log.v("Response of Create Post", response.toString())
+                    println("REsponse of create post$response")
 
                     try {
                         val serverResp = JSONObject(response.toString())
@@ -185,6 +184,7 @@ class Activity_create_post : AppCompatActivity() {
                             val errorMessage = serverResp.getString("message")
                             SDUtility.displayExceptionMessage(errorMessage, applicationContext)
                         } else {
+                            finish()
 
                         }
                     } catch (e: JSONException) {
@@ -194,7 +194,7 @@ class Activity_create_post : AppCompatActivity() {
                     }
                 },
                 com.android.volley.Response.ErrorListener { error ->
-                    hideProgressBar(my_login_progressbar)
+                    hideProgressBar(loader)
                     enableView()
                     VolleyLog.e("Error of Create Post", "Error" + error.message)
                 }) {
@@ -218,6 +218,7 @@ class Activity_create_post : AppCompatActivity() {
             )
             mysnackbar.setAction("Retry", View.OnClickListener {
                 if (videourl != "") {
+                    //method to create post with uploaded video url
                     createPost(videourl)
                 } else {
                     SDUtility.displayExceptionMessage("Please Upload the Video", this@Activity_create_post)
@@ -231,9 +232,6 @@ class Activity_create_post : AppCompatActivity() {
 
     private fun getPlayer() {
 
-        val videoUrl = "https://videodelivery.net/1584a1a702d494e3ddf52081d4a0b168/manifest/video.m3u8"
-
-        val mainHandler = Handler()
 
         /* A TrackSelector that selects tracks provided by the MediaSource to be consumed by each of the available Renderers.
 	  A TrackSelector is injected when the player is created. */
@@ -246,14 +244,13 @@ class Activity_create_post : AppCompatActivity() {
         mPlayer = ExoPlayerFactory.newSimpleInstance(this@Activity_create_post, trackSelector)
 
         // Load the default controller
-        mPlayerView!!.setUseController(true)
+        mPlayerView!!.useController = true
         mPlayerView!!.requestFocus()
 
         // Load the SimpleExoPlayerView with the created player
-        mPlayerView!!.setPlayer(mPlayer)
+        mPlayerView!!.player = mPlayer
 
         // Measures bandwidth during playback. Can be null if not required.
-
 
         // Produces DataSource instances through which media data is loaded.
         val dataSourceFactory =
@@ -299,7 +296,7 @@ class Activity_create_post : AppCompatActivity() {
     }
 
     companion object {
-        private val SERVER_PATH = "https://njd.api.underscoretec.com"
+        private const val SERVER_PATH = "https://njd.api.underscoretec.com"
 
     }
 
@@ -319,4 +316,8 @@ class Activity_create_post : AppCompatActivity() {
         imgCapture.isEnabled = true
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        mPlayer.release()
+    }
 }

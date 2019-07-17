@@ -97,11 +97,11 @@ class Video_description_fragment : Fragment() {
         mPlayer = ExoPlayerFactory.newSimpleInstance(context, trackSelector)
 
         // Load the default controller
-        mPlayerView!!.setUseController(true)
-        mPlayerView!!.requestFocus()
+        mPlayerView.useController = true
+        mPlayerView.requestFocus()
 
         // Load the SimpleExoPlayerView with the created player
-        mPlayerView!!.setPlayer(mPlayer)
+        mPlayerView.player = mPlayer
 
         // Measures bandwidth during playback. Can be null if not required.
         val defaultBandwidthMeter = DefaultBandwidthMeter()
@@ -123,10 +123,10 @@ class Video_description_fragment : Fragment() {
 
 
         // Prepare the player with the source.
-        mPlayer!!.prepare(videoSource)
+        mPlayer.prepare(videoSource)
 
         // Autoplay the video when the player is ready
-        mPlayer!!.setPlayWhenReady(true)
+        mPlayer.playWhenReady = true
     }
 
     private fun getValue() {
